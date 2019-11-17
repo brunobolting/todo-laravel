@@ -17,9 +17,9 @@
 
 // Route::resources(['task' => 'TaskController']);
 
-// Route::get(['/' => 'TaskController@index']);
+Route::get('/{any}', "TaskController@index")->where('any', '.*');
 
-Route::get('/', "TaskController@index");
-Route::post("/task", "TaskController@store");
-Route::get("/{id}/complete", "TaskController@complete");
-Route::get("/{id}/delete", "TaskController@destroy");
+// Route::get('/{any}', "TaskController@index");
+// Route::post("/task", "TaskController@store");
+// Route::get("/{id}/complete", "TaskController@complete");
+// Route::get("/{id}/delete", "TaskController@destroy");

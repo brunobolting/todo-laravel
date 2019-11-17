@@ -11,9 +11,17 @@ class TaskController extends Controller
 {
     public function index()
     {
-        $tasks = Task::where("status", false)->orderBy("id", "desc")->get();
-        $completed_tasks = Task::where("status", true)->get();
-        return view("welcome", compact("tasks", "completed_tasks"));
+        // $tasks = Task::where("status", false)->orderBy("id", "desc")->get();
+        // $completed_tasks = Task::where("status", true)->get();
+        // $tasks = Task::orderBy("id", "desc")->get();
+        // return view("welcome", compact("tasks", "completed_tasks"));
+        return view('index');
+    }
+
+    public function tasks()
+    {
+        $tasks = Task::orderBy("id", "desc")->get();
+        return $tasks;
     }
 
     public function store(Request $request)
@@ -32,7 +40,8 @@ class TaskController extends Controller
         $task = new Task();
         $task->text = request("task");
         $task->save();
-        return Redirect::back()->with("message", "Task has been added");
+        echo ("data saved");
+        // return Redirect::back()->with("message", "Task has been added");
     }
 
     public function complete($id)
