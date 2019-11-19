@@ -56,6 +56,8 @@ class TaskController extends Controller
     {
         $task = Task::find($id);
         $task->delete();
-        return Redirect::back()->with('message', "Task has been deleted");
+        echo ("deleted $id");
+
+        // return Redirect::back()->with('message', "Task has been deleted");
     }
 }

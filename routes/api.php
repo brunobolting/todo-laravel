@@ -19,3 +19,4 @@ use Illuminate\Http\Request;
 
 Route::get('/tasks', "TaskController@tasks");
 Route::post('/tasks/save', "TaskController@store");
+Route::delete('/tasks/{id}', "TaskController@destroy");

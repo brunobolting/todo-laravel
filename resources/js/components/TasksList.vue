@@ -1,29 +1,26 @@
 <template>
   <div>
-    <menu-component></menu-component>
-    <div class="container">
-      <form class="form-inline mb-3 mt-3" @submit="saveData()">
-        <div class="input-group">
-          <input
-            type="text"
-            class="form-control col-mb-6"
-            placeholder="New Task"
-            aria-label="New task text"
-            name="todoText"
-            v-model="todoText"
-          />
-          <div class="input-group-append">
-            <button class="btn btn-primary" @click.prevent="saveData()">Save</button>
-          </div>
+    <form class="form-inline mb-3 mt-3" @submit="saveData()">
+      <div class="input-group">
+        <input
+          type="text"
+          class="form-control col-mb-6"
+          placeholder="New Task"
+          aria-label="New task text"
+          name="todoText"
+          v-model="todoText"
+        />
+        <div class="input-group-append">
+          <button class="btn btn-primary" @click.prevent="saveData()">Save</button>
         </div>
-      </form>
+      </div>
+    </form>
 
-      <div v-if="tasks">
-        <div v-for="{ id, text, status } in tasks" v-bind:key="id">
-          <input type="checkbox" name v-bind:id="id" v-bind:value="id" v-bind:checked="status" />
-          <label v-bind:for="id">{{text}}</label>
-          <button v-on:click="deleteTask(id)">Delete</button>
-        </div>
+    <div v-if="tasks">
+      <div v-for="{ id, text, status } in tasks" v-bind:key="id">
+        <input type="checkbox" name v-bind:id="id" v-bind:value="id" v-bind:checked="status" />
+        <label v-bind:for="id">{{text}}</label>
+        <button v-on:click="deleteTask(id)">Delete</button>
       </div>
     </div>
   </div>
